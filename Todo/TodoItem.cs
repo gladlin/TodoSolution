@@ -9,7 +9,7 @@ namespace Todo
     public class TodoItem
     {
         public Guid Id { get; } = Guid.NewGuid();
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
         public bool IsDone { get; set; }
 
         public TodoItem() { }

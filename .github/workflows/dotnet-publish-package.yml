@@ -1,10 +1,10 @@
 name: Publish package to GitHub Packages
 
 on:
- workflow_run:
-  workflows: ["CI / Build & Test"]
-  types:
-   - completed
+  workflow_run:
+    workflows: ["CI / Build & Test"]
+    types:
+      - completed
    
 jobs:
   publish:
@@ -30,7 +30,7 @@ jobs:
         run: dotnet build -c Release --no-restore
     
       - name: Pack
-        run: dotnet pack Todo.Core/Todo.Core.csproj -c Release -o ./artifacts
+        run: dotnet pack Todo/Todo.Core.csproj -c Release -o ./artifacts
     
       - name: List artifacts
         run: ls -la ./artifacts || true
