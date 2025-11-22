@@ -1,0 +1,8 @@
+root = true
+[*.cs]
+dotnet_analyzer_diagnostic.severity = suggestion
+dotnet_diagnostic.SA1300.severity = none
+dotnet_diagnostic.SA1600.severity = none
+dotnet_diagnostic.SA1402.severity = none
+indent_style = space
+indent_size = 4
