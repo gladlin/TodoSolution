@@ -23,7 +23,6 @@ namespace Todo.Core
             return item;
         }
 
-
         public bool Remove(Guid id) => itemsValue.RemoveAll(i => i.Id == id) > 0;
 
         public IEnumerable<TodoItem> Find(string substring) =>
