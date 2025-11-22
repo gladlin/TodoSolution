@@ -10,15 +10,15 @@ namespace Todo.Core.Tests
     public class TodoListTests
     {
         [Fact]
-        public void Add_IncreasesCount()
+        public void AddIncreasesCount()
         {
             var list = new TodoList();
-            list.Add(" task ");
+            _ = list.Add(" task ");
             Assert.Equal(1, list.Count);
-            Assert.Equal("task", list.Items.First().Title);
+            Assert.Equal("task", list.Items[0].Title);
         }
         [Fact]
-        public void Remove_ById_Works()
+        public void RemoveByIdWorks()
         {
             var list = new TodoList();
             var item = list.Add("a");
@@ -26,21 +26,21 @@ namespace Todo.Core.Tests
             Assert.Equal(0, list.Count);
         }
         [Fact]
-        public void Find_ReturnsMatches()
+        public void FindReturnsMatches()
         {
             var list = new TodoList();
-            list.Add("Buy milk");
-            list.Add("Read book");
+            _ = list.Add("Buy milk");
+            _ = list.Add("Read book");
             var found = list.Find("buy").ToList();
-            Assert.Single(found);
+            _ = Assert.Single(found);
             Assert.Equal("Buy milk", found[0].Title);
         }
 
         [Fact]
-        public void Save_CreatesJsonFile()
+        public void SaveCreatesJsonFile()
         {
             var list = new TodoList();
-            list.Add("Buy milk");
+            _ = list.Add("Buy milk");
             string path = Path.GetTempFileName();
 
             list.Save(path);
@@ -51,11 +51,11 @@ namespace Todo.Core.Tests
         }
 
         [Fact]
-        public void Load_RestoresTasksFromFile()
+        public void LoadRestoresTasksFromFile()
         {
             var list = new TodoList();
-            list.Add("Buy milk");
-            list.Add("Read book");
+            _ = list.Add("Buy milk");
+            _ = list.Add("Read book");
 
             string path = Path.GetTempFileName();
             list.Save(path);
